@@ -25,46 +25,47 @@ The code breaker wins by guessing the secret sequence in a set number of attempt
 
 ### turnCount
 
-- Stores the amount of guesses the codebreaker has taken during a game
-- This is incremented each time the codebreaker calls `makeGuess`
+- Stores the amount of guesses the codebreaker has taken during a game.
+- This is incremented each time the codebreaker calls `(makeGuess)`
 
 ### codemasterId & codebreakerId
 
-- Stores unique identifiers for both players the codemaster and codebreaker
-- Each ID is a hashed address and salt
+- Stores unique identifiers for both players the codemaster and codebreaker.
+- Each ID is a hashed address and salt.
 
 ### Solutions hash
 
 - Stores the hashed secret combination set by the codemaster. 
-- The secret combination along with a salt is passed when calling the `createGame` method.
+- The secret combination along with a salt is passed when calling the `(createGame)` method.
 
 ### serializedGuess
 
-- Stores array of guesses by the codebreaker in raw Field format
+- Stores array of guesses by the codebreaker in raw Field format.
 
 ### serializedClue
 
-- Stores array of clues given by the codemaster in raw Field format
+- Stores array of clues given by the codemaster in raw Field format.
 
 ### isSolved
 
-- Stores boolean which represent the state if the game
+- Stores boolean which represent the state if the game.
 
 ## initGame()
-- Called by the deployer account to initialize the app/game
-- Takes 1 Uint argument to set the max amount of rounds 
+- Called by the deployer account to initialize the app/game.
+- Takes 1 Uint argument to set the max amount of rounds. 
 
 ## createGame()
-- Called by the codemaster/player
-- Takes 2 Field arguments, the codemaster's serialized secretCombination and a salt
+- Called by the codemaster/player.
+- Takes 2 Field arguments, the codemaster's serialized secretCombination and a salt.
 
 ## makeGuess()
-- Called by the codebreaker/player
-- Takes 2 Field arguments, the codebreaker's serialized guess and a salt
+- Called by the codebreaker/player.
+- Takes 2 Field arguments, the codebreaker's serialized guess and a salt.
 
 ## giveClue()
-- Called by the codemaster/player
-- Takes 2 Field arguments, the codemaster's serialized secretCombination and a salt
+- Called by the codemaster/player.
+- Takes 2 Field arguments, the codemaster's serialized secretCombination and a salt.
+- Responsible for verifying the guess against the secret combination and updating the isSolved value on chain inorder to determine the outcome of the game.
 
 ---
 
