@@ -65,7 +65,7 @@ The code breaker wins by guessing the secret sequence in a set number of attempt
 ## giveClue()
 - Called by the codemaster/player.
 - Takes 2 Field arguments, the codemaster's serialized secretCombination and a salt.
-- Responsible for verifying the guess against the secret combination and updating the isSolved value on chain inorder to determine the outcome of the game.
+- Responsible for verifying the guess against the secret combination and updating the `isSolved` value on chain inorder to determine the outcome of the game.
 
 ---
 
