@@ -23,48 +23,48 @@ The code breaker wins by guessing the secret sequence in a set number of attempt
 - Stores the max number if turns the codebreaker has to guess the solution
 - This value is provided during game initialization
 
-## turnCount
+### turnCount
 
 - Stores the amount of guesses the codebreaker has taken during a game
 - This is incremented each time the codebreaker calls `makeGuess`
 
-## codemasterId & codebreakerId
+### codemasterId & codebreakerId
 
 - Stores unique identifiers for both players the codemaster and codebreaker
 - Each ID is a hashed address and salt
 
-## Solutions hash
+### Solutions hash
 
 - Stores the hashed secret combination set by the codemaster. 
 - The secret combination along with a salt is passed when calling the `createGame` method.
 
-## serializedGuess
+### serializedGuess
 
 - Stores array of guesses by the codebreaker in raw Field format
 
-## serializedClue
+### serializedClue
 
 - Stores array of clues given by the codemaster in raw Field format
 
-## isSolved
+### isSolved
 
 - Stores boolean which represent the state if the game
 
-### initGame()
+## initGame()
 - Called by the deployer account to initialize the app/game
 - Takes 1 Uint argument to set the max amount of rounds 
 
-### createGame()
+## createGame()
 - Called by the codemaster/player
-- Takes 2 Field arguments, the set serialized secretCombination and a salt
+- Takes 2 Field arguments, the codemaster's serialized secretCombination and a salt
 
-### makeGuess()
+## makeGuess()
 - Called by the codebreaker/player
-- Takes 2 Field arguments, the set serialized guess and a salt
+- Takes 2 Field arguments, the codebreaker's serialized guess and a salt
 
-### giveClue()
+## giveClue()
 - Called by the codemaster/player
-- Takes 2 Field arguments, the set serialized secretCombination and a salt
+- Takes 2 Field arguments, the codemaster's serialized secretCombination and a salt
 
 ---
 
