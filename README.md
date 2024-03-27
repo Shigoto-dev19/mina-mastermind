@@ -20,7 +20,7 @@ The code breaker wins by guessing the secret sequence in a set number of attempt
 
 ### roundsLimit 
 
-- Stores the max number if turns the codebreaker has to guess the solution
+- Stores the max number of turns the codebreaker has to guess the solution(secret combination)
 - This value is provided during game initialization
 
 ### turnCount
