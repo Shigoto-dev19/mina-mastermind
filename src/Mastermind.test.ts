@@ -46,7 +46,8 @@ describe('Mastermind ZkApp Tests', () => {
     zkappPrivateKey: PrivateKey,
     zkapp: MastermindZkApp,
     codemasterSalt: Field,
-    codebreakerSalt: Field;
+    codebreakerSalt: Field,
+    intruderSalt: Field;
 
   beforeAll(async () => {
     if (proofsEnabled) await MastermindZkApp.compile();
@@ -68,6 +69,7 @@ describe('Mastermind ZkApp Tests', () => {
     // Generate random field as salt for the codemaster & codebreaker respectively
     codemasterSalt = Field.random();
     codebreakerSalt = Field.random();
+    intruderSalt = Field.random();
   });
 
   describe('Deploy and initialize Mastermind zkApp', () => {
@@ -385,6 +387,21 @@ describe('Mastermind ZkApp Tests', () => {
 
       const turnCount = zkapp.turnCount.get().toNumber();
       expect(turnCount).toEqual(3);
+    });
+    it('should reject any caller other than the codebreaker', async () => {
+      const intruderGuess = [1, 4, 2, 4];
+      const intruderSerializedGuess = serializeCombination(intruderGuess);
+
+      const intruderJoinTX = async () => {
+        const joinGameTx = await Mina.transaction(intruderKey.toPublicKey(), () => {
+          zkapp.makeGuess(intruderSerializedGuess, intruderSalt);
+        });
+
+        await joinGameTx.prove();
+        await joinGameTx.sign([intruderKey]).send();
+      }
+      
+      expect(intruderJoinTX).rejects.toThrowError("You are not the codebreaker of this game!");
     });
 
     it('should reject the codemaster from calling this method out of sequence', async () => {
