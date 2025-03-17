@@ -1,18 +1,17 @@
 export const availableColors = [
-  { color: "#dfcee9", value: 1 },
-  { color: "#ead0c6", value: 2 },
-  { color: "#ccdefa", value: 3 },
-  { color: "#c5f0df", value: 4 },
-  { color: "#f9f9f9", value: 5 },
-  { color: "#d69f7e", value: 6 },
-  { color: "#85c0f9", value: 7 },
-  { color: "#ffd6ff", value: 8 },
-  { color: "#fcf6bd", value: 9 },
+    { color: "#FF7518", value: 1 },
+    { color: "#FFC0CB", value: 2 },
+    { color: "#FFBF00", value: 3 },
+    { color: "#0BDA51", value: 4 },
+    { color: "#7FFFD4", value: 5 },
+    { color: "#FFCBA4", value: 6 },
+    { color: "#73C2FB", value: 7 },
+    { color: "#D473D4", value: 8 },
+    { color: "#fcf6bd", value: 9 },
 ];
 
 export const cluesColors = [
-  { color: "#ff99ac", value: 0, title: "Miss" },
-  { color: "#ffea00", value: 1, title: "Blow" },
-  { color: "#88d4ab", value: 2, title: "Hit" },
+    { color: "#ED2939", value: 0, title: "Miss" },
+    { color: "#ffd800", value: 1, title: "Blow" },
+    { color: "#66FF00", value: 2, title: "Hit" },
 ];
-  
